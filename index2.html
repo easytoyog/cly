@@ -19,14 +19,13 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
 
     <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div id="wrapper" >
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar"  style="display: none;">
@@ -157,16 +156,50 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <a class="navbar-brand" href="#">
-                        <img src="img/logo.png" alt="Logo" class="navbar-logo">
-                    </a>
-                    <h1 class="h3 text-gray-800 mx-1 mt-2">Cly</h1>
-
-                    <button type="button" class="btn btn-primary ml-5" data-toggle="modal" data-target="#staticBackdrop">
-                      + new
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
                     </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -189,8 +222,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">June 22, 2023</div>
-                                        <span class="font-weight-bold">Your supported project Meadowway has reached full funding!</span>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -200,8 +233,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">June 20, 2024</div>
-                                        James has reached 30 day streak!
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -211,8 +244,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">May 31, 2019</div>
-                                        Spending Alert: We've noticed unusually high carbon emission this month
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
                                     </div>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
@@ -262,6 +295,12 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Hi Cly-Mate</h1>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                          Add New Log
+                        </button>
+
                         <!-- Modal -->
                         <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -276,7 +315,7 @@
                                 <form>
                                   <div class="form-group">
                                     <label for="category">Choose a category:</label>
-                                    <select id="category" name="category" class="m;-2">
+                                    <select id="category" name="category">
                                         <option value="transportation">Transportation</option>
                                         <option value="homeEnergy">Home Energy</option>
                                         <option value="diet">Diet</option>
@@ -285,10 +324,7 @@
                                   </div>
                                   <div class="form-group">
                                     <label for="message-text" class="col-form-label">Amount Used:</label>
-                                    <div class="input-group">
-                                        <input class="form-control" id="message-text">
-                                        <img src="img/microphone.png" alt="Microphone" id="start-record-btn">
-                                    </div>
+                                    <input class="form-control" id="message-text"></input>
                                   </div>
                                 </form>
                               </div>
@@ -313,13 +349,43 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Carbon Consumption Today</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">10.2 KG </div>
+                                                Carbon Footprint Today</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">42.7 KG </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Monthly Carbon Footprint</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">0.75 Ton</div>
-                                            <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
-                                                Carbon Neutral</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Progress towards carbon neutral
+                                            </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
                                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">75%</div>
@@ -332,20 +398,33 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Streak</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18 Days</div>
                                         </div>
                                         <div class="col-auto">
-
-                                      </div>
-
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Streak</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18 Days</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Content Row -->
 
@@ -534,7 +613,29 @@
 
                         </div>
 
+                        <div class="col-lg-6 mb-4">
 
+                            <!-- Illustrations -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">What's New</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                            src="img/undraw_posting_photo.svg" alt="...">
+                                    </div>
+                                    <p>Add some quality, svg illustrations to your project courtesy of <a
+                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
+                                        constantly updated collection of beautiful svg images that you can use
+                                        completely free and without attribution!</p>
+                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
+                                        unDraw &rarr;</a>
+                                </div>
+                            </div>
+
+
+                        </div>
                     </div>
 
                 </div>
@@ -547,7 +648,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Cly 2024</span>
+                        <span>Copyright &copy; Your Website 2021</span>
                     </div>
                 </div>
             </footer>
@@ -600,43 +701,6 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-
-    <script src="js/customjs.js"></script>
-
-    <script type="text/javascript">
-
-    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-    // Initialize the speech recognition object
-    const recognition = new SpeechRecognition();
-    recognition.interimResults = false;
-
-    // Get the input and button elements
-    const messageText = document.getElementById('message-text');
-    const startRecordBtn = document.getElementById('start-record-btn');
-
-    // Event listener for the microphone button
-    startRecordBtn.addEventListener('click', () => {
-        recognition.start();
-    });
-
-    // Event handler for the result event
-    recognition.addEventListener('result', (event) => {
-        const transcript = Array.from(event.results)
-            .map(result => result[0])
-            .map(result => result.transcript)
-            .join('');
-
-        messageText.value = transcript;
-    });
-
-    // Stop recognition after getting the result
-    recognition.addEventListener('end', () => {
-        recognition.stop();
-    });
-
-
-    </script>
 
 </body>
 
